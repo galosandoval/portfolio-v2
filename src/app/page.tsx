@@ -1,9 +1,10 @@
-import { ArrowRightIcon, Link2Icon } from "@radix-ui/react-icons"
-import Link from "next/link"
-import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move"
-import { ModeToggle } from "~/components/mode-toggle"
-import { Badge } from "~/components/ui/badge"
-import { Button } from "~/components/ui/button"
+import { ArrowRightIcon, Link2Icon } from "lucide-react";
+import Link from "next/link";
+import { Card } from "~/components/card";
+import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move";
+import { ModeToggle } from "~/components/mode-toggle";
+import { Badge } from "~/components/ui/badge";
+import { Button } from "~/components/ui/button";
 
 export default function HomePage() {
   return (
@@ -14,31 +15,17 @@ export default function HomePage() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           <Header />
 
-          <main className="flex flex-col pt-24 lg:w-1/2 lg:py-24">
+          <main id="content" className="flex flex-col pt-24 lg:w-1/2 lg:py-24">
             <AboutMe />
 
             <Experience />
 
-            <div className="pt-10">
-              <Link
-                className="group flex items-center gap-2 font-semibold"
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="group-hover:border-b-primary border-b-2 border-b-transparent">
-                  View full resume
-                </span>{" "}
-                <span className="-mt-px transition group-hover:translate-x-2">
-                  <ArrowRightIcon />
-                </span>
-              </Link>
-            </div>
+            <section></section>
           </main>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 function Header() {
@@ -60,7 +47,7 @@ function Header() {
         </li>
       </ul>
     </header>
-  )
+  );
 }
 
 function animateString(string: string) {
@@ -69,31 +56,31 @@ function animateString(string: string) {
       return (
         <span
           key={index}
-          className="group-hover/formula:text-primary inline-block transition duration-75 group-hover/formula:-translate-y-px"
+          className="inline-block transition duration-75 group-hover/formula:-translate-y-px group-hover/formula:text-primary"
           style={{ transitionDelay: `${index * 25 + 50}ms` }}
         >
           &nbsp;
         </span>
-      )
+      );
 
     return (
       <span
         key={index}
-        className="group-hover/formula:text-primary inline-block transition duration-75 group-hover/formula:-translate-y-px"
+        className="inline-block transition duration-75 group-hover/formula:-translate-y-px group-hover/formula:text-primary"
         style={{ transitionDelay: `${index * 25 + 50}ms` }}
       >
         {letter}
       </span>
-    )
-  })
+    );
+  });
 }
 
 function AboutMe() {
-  const formulaOne = "Formula 1"
-  const cooking = "cooking"
-  const golf = "golf"
-  const dancing = "dancing"
-  const flagFootball = "flag football league"
+  const formulaOne = "Formula 1";
+  const cooking = "cooking";
+  const golf = "golf";
+  const dancing = "dancing";
+  const flagFootball = "flag football league";
 
   return (
     <section className="mb-16 flex flex-col gap-4 md:mb-24 lg:mb-36">
@@ -103,18 +90,18 @@ function AboutMe() {
           href="https://www.bloomtech.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-primary focus-visible:text-primary font-bold"
+          className="font-bold hover:text-primary focus-visible:text-primary"
         >
           fullstack web development boot camp
         </a>
         , where I honed my skills in web development. Proficient in React.js,
-        TypeScript, and Agile methodologies, I've transitioned from boot camp
-        graduate to an{" "}
+        TypeScript, and Agile methodologies, I&rsquo;ve transitioned from boot
+        camp graduate to an{" "}
         <a
           href="http://https://www.ibm.com/impact/feature/apprenticeship"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-primary focus-visible:text-primary font-bold"
+          className="font-bold hover:text-primary focus-visible:text-primary"
         >
           application developer apprentice
         </a>
@@ -128,7 +115,7 @@ function AboutMe() {
           href="https://brightinsight.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-primary focus-visible:text-primary font-bold"
+          className="font-bold hover:text-primary focus-visible:text-primary"
         >
           medtech company
         </a>
@@ -137,7 +124,7 @@ function AboutMe() {
       </p>
 
       <p>
-        Beyond work, I'm passionate about{" "}
+        Beyond work, I&rsquo;m passionate about{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/chef-hat.svg),_pointer]">
           {animateString(cooking)}
         </span>
@@ -161,19 +148,19 @@ function AboutMe() {
         .
       </p>
     </section>
-  )
+  );
 }
 
 type Job = {
-  from: string
-  to: string
-  prevTitles: string[]
-  titleAndCompany: string
-  description: string
-  badges: string[]
-  href: string
-  links: { title: string; url: string }[]
-}
+  from: string;
+  to: string;
+  prevTitles: string[];
+  titleAndCompany: string;
+  description: string;
+  badges: string[];
+  href: string;
+  links: { title: string; url: string }[];
+};
 
 const experience: Job[] = [
   {
@@ -190,10 +177,10 @@ const experience: Job[] = [
       "Redux",
       "TailwindCSS",
       "Vitest",
-      "BitBucket"
+      "BitBucket",
     ],
     links: [],
-    href: "https://upstatement.com"
+    href: "https://upstatement.com",
   },
   {
     from: "May 2021",
@@ -206,10 +193,10 @@ const experience: Job[] = [
       "Typescript/Javascript",
       "Agile",
       "React",
-      "IBM Hybrid Cloud Services"
+      "IBM Hybrid Cloud Services",
     ],
     links: [],
-    href: "https://upstatement.com"
+    href: "https://upstatement.com",
   },
   {
     from: "Feb 2017",
@@ -221,31 +208,43 @@ const experience: Job[] = [
     badges: [],
     links: [
       { title: "Upstatement", url: "https://upstatement.com" },
-      { title: "Harvard Business School", url: "https://hbs.edu" }
+      { title: "Harvard Business School", url: "https://hbs.edu" },
     ],
-    href: "https://upstatement.com"
-  }
-]
+    href: "https://upstatement.com",
+  },
+];
 
 function Experience() {
   return (
-    <section className="">
+    <section>
       <ol className="group/list flex flex-col gap-12">
-        {experience.map((job, index) => (
-          <Job job={job} index={index} />
+        {experience.map((job) => (
+          <Job job={job} key={job.href} />
         ))}
       </ol>
+
+      <div className="pt-10">
+        <Link
+          className="group flex items-center gap-2 font-semibold"
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="border-b-2 border-b-transparent group-hover:border-b-primary">
+            View full resume
+          </span>{" "}
+          <span className="-mt-px transition group-hover:translate-x-2">
+            <ArrowRightIcon />
+          </span>
+        </Link>
+      </div>
     </section>
-  )
+  );
 }
 
-function Job({ job, index }: { job: Job; index: number }) {
+function Job({ job }: { job: Job }) {
   return (
-    <li
-      key={index}
-      className="group relative grid rounded-lg transition-all duration-300 sm:grid-cols-8 sm:gap-8 md:gap-2 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
-    >
-      <div className="lg:group-hover:bg-background/50 absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block"></div>
+    <Card>
       <header className="z-10 mt-1 text-xs font-semibold uppercase tracking-wide sm:col-span-2">
         <span className="whitespace-nowrap">{job.from}</span> -{" "}
         <span className="whitespace-nowrap">{job.to}</span>
@@ -254,7 +253,7 @@ function Job({ job, index }: { job: Job; index: number }) {
         <div className="text-lg leading-snug">
           <Link
             href={job.href}
-            className="hover:text-primary focus-visible:text-primary font-medium leading-tight transition-all duration-300"
+            className="font-medium leading-tight transition-all duration-300 hover:text-primary focus-visible:text-primary"
           >
             {job.titleAndCompany}
             <span className="absolute inset-0 hidden lg:block"></span>
@@ -275,14 +274,16 @@ function Job({ job, index }: { job: Job; index: number }) {
         {job.links.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {job.links.map((link) => (
-              <Button
-                key={link.url}
-                size="sm"
-                variant="link"
-                className="text-sm"
-              >
-                <Link2Icon className="mr-1" />
-                <Link href={link.url}>{link.title}</Link>
+              <Button key={link.url} size="sm" variant="link" asChild>
+                <Link
+                  href={link.url}
+                  target="_blank"
+                  className="relative hover:text-primary"
+                  rel="noopener noreferrer"
+                >
+                  <Link2Icon aria-hidden={true} className="mr-1" />
+                  {link.title}
+                </Link>
               </Button>
             ))}
           </div>
@@ -296,6 +297,6 @@ function Job({ job, index }: { job: Job; index: number }) {
           </div>
         )}
       </div>
-    </li>
-  )
+    </Card>
+  );
 }
