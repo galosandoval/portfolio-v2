@@ -80,3 +80,7 @@
     --ring: 299 77% 55%;
   }
 }
+
+a {
+  @apply transition-all;
+}

@@ -1,8 +1,11 @@
 import { ArrowRightIcon, Link2Icon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { AnimateString } from "~/components/animate-string";
 import { Card } from "~/components/card";
 import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move";
 import { ModeToggle } from "~/components/mode-toggle";
+import { ParagraphLink } from "~/components/paragraph-link";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 
@@ -20,7 +23,9 @@ export default function HomePage() {
 
             <Experience />
 
-            <section></section>
+            <Projects />
+
+            <Footer />
           </main>
         </div>
       </div>
@@ -50,31 +55,6 @@ function Header() {
   );
 }
 
-function animateString(string: string) {
-  return string.split("").map((letter, index) => {
-    if (letter === " ")
-      return (
-        <span
-          key={index}
-          className="inline-block transition duration-75 group-hover/formula:-translate-y-px group-hover/formula:text-primary"
-          style={{ transitionDelay: `${index * 25 + 50}ms` }}
-        >
-          &nbsp;
-        </span>
-      );
-
-    return (
-      <span
-        key={index}
-        className="inline-block transition duration-75 group-hover/formula:-translate-y-px group-hover/formula:text-primary"
-        style={{ transitionDelay: `${index * 25 + 50}ms` }}
-      >
-        {letter}
-      </span>
-    );
-  });
-}
-
 function AboutMe() {
   const formulaOne = "Formula 1";
   const cooking = "cooking";
@@ -86,39 +66,24 @@ function AboutMe() {
     <section className="mb-16 flex flex-col gap-4 md:mb-24 lg:mb-36">
       <p>
         My coding journey began with a{" "}
-        <a
-          href="https://www.bloomtech.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-bold hover:text-primary focus-visible:text-primary"
-        >
+        <ParagraphLink href="https://www.bloomtech.com/">
           fullstack web development boot camp
-        </a>
+        </ParagraphLink>
         , where I honed my skills in web development. Proficient in React.js,
         TypeScript, and Agile methodologies, I&rsquo;ve transitioned from boot
         camp graduate to an{" "}
-        <a
-          href="http://https://www.ibm.com/impact/feature/apprenticeship"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-bold hover:text-primary focus-visible:text-primary"
-        >
+        <ParagraphLink href="http://https://www.ibm.com/impact/feature/apprenticeship">
           application developer apprentice
-        </a>
+        </ParagraphLink>
         . This experience laid the foundation for my journey as a software
         engineer.
       </p>
 
       <p>
         Currently, I excel as a software engineer at a {""}
-        <a
-          href="https://brightinsight.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-bold hover:text-primary focus-visible:text-primary"
-        >
+        <ParagraphLink href="https://brightinsight.com/">
           medtech company
-        </a>
+        </ParagraphLink>
         , emphasizing user-centric design, operational efficiency, and seamless
         experiences.
       </p>
@@ -126,24 +91,24 @@ function AboutMe() {
       <p>
         Beyond work, I&rsquo;m passionate about{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/chef-hat.svg),_pointer]">
-          {animateString(cooking)}
+          <AnimateString string={cooking} />
         </span>
         ,{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/golf.svg),_pointer]">
-          {animateString(golf)}
+          <AnimateString string={golf} />
         </span>
         ,{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/dancing.svg),_pointer]">
-          {animateString(dancing)}
+          <AnimateString string={dancing} />
         </span>
         ,{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/racecar.svg),_pointer]">
           <span className="sr-only">{formulaOne}</span>
-          {animateString(formulaOne)}
+          <AnimateString string={formulaOne} />
         </span>
         , and active participation in a{" "}
         <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/football.svg),_pointer]">
-          {animateString(flagFootball)}
+          <AnimateString string={flagFootball} />
         </span>
         .
       </p>
@@ -216,7 +181,7 @@ const experience: Job[] = [
 
 function Experience() {
   return (
-    <section>
+    <section className="scroll-mt-16 pb-16 md:pb-24 lg:scroll-mt-24 lg:pb-36">
       <ol className="group/list flex flex-col gap-12">
         {experience.map((job) => (
           <Job job={job} key={job.href} />
@@ -225,16 +190,16 @@ function Experience() {
 
       <div className="pt-10">
         <Link
-          className="group flex items-center gap-2 font-semibold"
+          className="group font-semibold"
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="border-b-2 border-b-transparent group-hover:border-b-primary">
+          <span className="relative border-b-2 border-b-transparent group-hover:border-b-primary">
             View full resume
-          </span>{" "}
-          <span className="-mt-px transition group-hover:translate-x-2">
-            <ArrowRightIcon />
+            <span className="absolute -right-8 mt-px transition group-hover:translate-x-2">
+              <ArrowRightIcon />
+            </span>
           </span>
         </Link>
       </div>
@@ -244,59 +209,141 @@ function Experience() {
 
 function Job({ job }: { job: Job }) {
   return (
-    <Card>
-      <header className="z-10 mt-1 text-xs font-semibold uppercase tracking-wide sm:col-span-2">
-        <span className="whitespace-nowrap">{job.from}</span> -{" "}
-        <span className="whitespace-nowrap">{job.to}</span>
-      </header>
-      <div className="z-10 flex flex-col gap-2 sm:col-span-6">
-        <div className="text-lg leading-snug">
+    <Card
+      leftCol={
+        <>
+          {" "}
+          <span className="whitespace-nowrap">{job.from}</span> -{" "}
+          <span className="whitespace-nowrap">{job.to}</span>
+        </>
+      }
+    >
+      <div className="-mt-1 flex flex-col">
+        <h3 className="text-lg leading-snug">
           <Link
             href={job.href}
             className="font-medium leading-tight transition-all duration-300 hover:text-primary focus-visible:text-primary"
           >
             {job.titleAndCompany}
-            <span className="absolute inset-0 hidden lg:block"></span>
+            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
           </Link>
-          {job.prevTitles.length > 0 &&
-            job.prevTitles.map((title) => (
-              <h3
-                className="text-muted-foreground"
-                aria-hidden={true}
-                key={title}
-              >
-                {title}
-              </h3>
-            ))}
-        </div>
-        <p className="">{job.description}</p>
-
-        {job.links.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {job.links.map((link) => (
-              <Button key={link.url} size="sm" variant="link" asChild>
-                <Link
-                  href={link.url}
-                  target="_blank"
-                  className="relative hover:text-primary"
-                  rel="noopener noreferrer"
-                >
-                  <Link2Icon aria-hidden={true} className="mr-1" />
-                  {link.title}
-                </Link>
-              </Button>
-            ))}
-          </div>
-        )}
-
-        {job.badges.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {job.badges.map((badge) => (
-              <Badge key={badge}>{badge}</Badge>
-            ))}
-          </div>
-        )}
+        </h3>
+        {job.prevTitles.length > 0 &&
+          job.prevTitles.map((title) => (
+            <h3
+              className="text-muted-foreground"
+              aria-hidden={true}
+              key={title}
+            >
+              {title}
+            </h3>
+          ))}
       </div>
+
+      <p className="leading-normal">{job.description}</p>
+
+      {job.links.length > 0 && (
+        <div className="flex flex-wrap gap-x-2">
+          {job.links.map((link) => (
+            <Button key={link.url} size="sm" variant="link" asChild>
+              <Link
+                href={link.url}
+                className="relative hover:text-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Link2Icon aria-hidden={true} className="mr-1" />
+                {link.title}
+              </Link>
+            </Button>
+          ))}
+        </div>
+      )}
+
+      {job.badges.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {job.badges.map((badge) => (
+            <Badge key={badge}>{badge}</Badge>
+          ))}
+        </div>
+      )}
     </Card>
+  );
+}
+
+const projects = [
+  {
+    title: "RecipeChat",
+    description:
+      "An app that uses ChatGPT to generate recipes. Save, edit, and make grocery lists from your favorite recipes.",
+    href: "https://recipechat.app/",
+    icon: "/images/recipechat.png",
+  },
+  {
+    title: "Breathing Helper",
+    description:
+      "Breathing exercises can improve your well-being. With the 4-7-8 Breathing Helper, control your cravings and sleep faster. You'll find links to more information in the app.",
+    href: "https://478-breathing.vercel.app/",
+    icon: "/images/breathe-helper.png",
+  },
+  {
+    title: "Portfolio v1",
+    description:
+      "My first portfolio site. Built with React and Styled Components.",
+    href: "https://galosandovalportfolio.vercel.app/",
+    icon: "/images/portfolio-v1.png",
+  },
+];
+
+function Projects() {
+  return (
+    <section className="scroll-mt-16 pb-16 md:pb-24 lg:scroll-mt-24 lg:pb-36">
+      <ol className="group/list flex flex-col gap-12">
+        {projects.map((project) => (
+          <Card
+            key={project.title}
+            leftCol={
+              <Image
+                alt="recipe chat landing page"
+                src={project.icon}
+                className="rounded-md border-2 border-background transition group-hover:border-primary sm:order-1 sm:col-span-2 sm:translate-y-1"
+                height={48}
+                width={200}
+              />
+            }
+          >
+            <h3 className="text-lg leading-snug">
+              <Link
+                className="font-medium leading-tight transition-all duration-300 hover:text-primary focus-visible:text-primary"
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.title}
+                <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+              </Link>
+            </h3>
+
+            <p className="">{project.description}</p>
+          </Card>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="text-sm text-muted-foreground">
+      <p>
+        This site draws significant inspiration from{" "}
+        <ParagraphLink href="https://brittanychiang.com/">
+          Brittany Chiang
+        </ParagraphLink>
+        , and it was crafted using Typescript, Next.js, and Tailwind CSS. It is
+        proudly hosted on Vercel, and the font used is sourced from Vercel as
+        well.
+      </p>
+    </footer>
   );
 }
