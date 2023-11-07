@@ -38,10 +38,11 @@ function Header() {
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold sm:text-5xl">Galo Sandoval</h1>
-        <h2 className="text-lg font-medium sm:text-xl">Software Engineer</h2>
+        <h2 className="text-lg font-medium sm:text-xl">
+          Software Engineer at BrightInsight
+        </h2>
         <p className="max-w-sm font-light leading-normal">
-          I build accessible, inclusive products and digital experiences for the
-          web.
+          Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
         <nav className="nav hidden lg:block"></nav>
       </div>
@@ -134,7 +135,7 @@ const experience: Job[] = [
     prevTitles: ["React Engineer"],
     titleAndCompany: "Software Engineer · BrightInsight",
     description:
-      "Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship.",
+      "As a Frontend Developer at BrightInsight, I actively contribute to their Disease Management Platform (DMP), working in a team of eight professionals. My role involves creating and documenting processes, using Agile practices, and leveraging React, TypeScript, and more. I continue to be a part of the team, contributing to the development of enterprise healthcare solutions.",
     badges: [
       "React",
       "Typescript",
@@ -153,7 +154,7 @@ const experience: Job[] = [
     prevTitles: [],
     titleAndCompany: "Application Developer Apprentice · IBM",
     description:
-      "Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship.",
+      "At IBM, I served as an Application Developer Apprentice, gaining insights into enterprise-level project workflows and Agile practices. My responsibilities included troubleshooting technical issues, conducting daily stand-up meetings, and understanding IBM's Hybrid Cloud Services. This experience enhanced my adaptability in dynamic work environments.",
     badges: [
       "Typescript/Javascript",
       "Agile",
@@ -169,7 +170,7 @@ const experience: Job[] = [
     prevTitles: ["Lead Barista", "Barista"],
     titleAndCompany: "General Manager · Go Get Em Tiger",
     description:
-      "Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship.",
+      "During my tenure as General Manager at Go Get Em Tiger, a Downtown LA coffee bar, I optimized store operations, reduced expenses, and improved staff allocation. I also played a key role in the hiring and training of new staff, emphasizing effective leadership and teamwork.",
     badges: [],
     links: [
       { title: "Upstatement", url: "https://upstatement.com" },
@@ -280,18 +281,18 @@ const projects = [
     icon: "/images/recipechat.png",
   },
   {
-    title: "Breathing Helper",
-    description:
-      "Breathing exercises can improve your well-being. With the 4-7-8 Breathing Helper, control your cravings and sleep faster. You'll find links to more information in the app.",
-    href: "https://478-breathing.vercel.app/",
-    icon: "/images/breathe-helper.png",
-  },
-  {
     title: "Portfolio v1",
     description:
       "My first portfolio site. Built with React and Styled Components.",
     href: "https://galosandovalportfolio.vercel.app/",
     icon: "/images/portfolio-v1.png",
+  },
+  {
+    title: "Breathing Helper",
+    description:
+      "Breathing exercises can improve your well-being. With the 4-7-8 Breathing Helper, control your cravings and sleep faster. You'll find links to more information in the app.",
+    href: "https://478-breathing.vercel.app/",
+    icon: "/images/breathe-helper.png",
   },
 ];
 
