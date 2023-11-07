@@ -340,8 +340,18 @@ function Footer() {
         <ParagraphLink href="https://brittanychiang.com/">
           Brittany Chiang
         </ParagraphLink>
-        , and it was crafted using Typescript, Next.js, and Tailwind CSS. It is
-        proudly hosted on Vercel, and the font used is sourced from Vercel as
+        , and it was crafted using{" "}
+        <ParagraphLink href="https://www.typescriptlang.org/">
+          Typescript
+        </ParagraphLink>
+        , <ParagraphLink href="https://nextjs.org/">Next.js</ParagraphLink>, and{" "}
+        <ParagraphLink href="https://tailwindcss.com/">
+          Tailwind CSS
+        </ParagraphLink>
+        . It is proudly hosted on{" "}
+        <ParagraphLink href="https://vercel.com/">Vercel</ParagraphLink>, and
+        the font used is sourced from{" "}
+        <ParagraphLink href="https://vercel.com/font">Vercel</ParagraphLink> as
         well.
       </p>
     </footer>
