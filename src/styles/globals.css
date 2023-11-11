@@ -84,3 +84,7 @@
 a {
   @apply transition-all;
 }
+
+html {
+  scroll-behavior: smooth;
+}
