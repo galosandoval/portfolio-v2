@@ -103,7 +103,7 @@ export function Projects() {
                 <Button key={link.label} size="sm" variant="link" asChild>
                   <Link
                     href={link.href}
-                    className="relative flex items-center gap-2 hover:text-primary"
+                    className="relative flex items-center gap-2 text-sm hover:text-primary"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

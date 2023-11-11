@@ -21,7 +21,7 @@ export function AboutMe() {
         , where I honed my skills in web development. Proficient in React.js,
         TypeScript, and Agile methodologies, I&rsquo;ve transitioned from boot
         camp graduate to an{" "}
-        <ParagraphLink href="http://https://www.ibm.com/impact/feature/apprenticeship">
+        <ParagraphLink href="https://www.ibm.com/impact/feature/apprenticeship">
           application developer apprentice
         </ParagraphLink>
         . This experience laid the foundation for my journey as a software

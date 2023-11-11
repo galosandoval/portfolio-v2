@@ -116,6 +116,8 @@ function Job({ job }: { job: Job }) {
           <Link
             href={job.href}
             className="font-medium leading-tight transition-all duration-300 hover:text-primary focus-visible:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {job.titleAndCompany}
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
