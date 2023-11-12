@@ -1,66 +1,18 @@
-"use client";
-
-import { GithubIcon, LinkedinIcon } from "lucide-react";
-import Link from "next/link";
-import { useEffect } from "react";
-import { AboutMe } from "~/components/about-me";
-import { Experience } from "~/components/experience";
-import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move";
-import { ModeToggle } from "~/components/mode-toggle";
-import { ParagraphLink } from "~/components/paragraph-link";
-import { Projects } from "~/components/projects";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
-
-function useHighlightOnScroll() {
-  useEffect(() => {
-    // Get all sections that have an ID defined
-    const sections = document.querySelectorAll(
-      "section[id]",
-    ) as unknown as HTMLScriptElement[];
-
-    // Add an event listener listening for scroll
-    window.addEventListener("scroll", navHighlighter);
-
-    function navHighlighter() {
-      // Get current scroll position
-      const scrollY = window.scrollY;
-
-      // Now we loop through sections to get height, top and ID values for each
-      sections.forEach((current) => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 200;
-        const sectionId = current.getAttribute("id");
-
-        /*
-    - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
-    - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
-    */
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.add("w-full");
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.remove("w-0");
-        } else {
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.remove("w-full");
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.add("w-0");
-        }
-      });
-    }
-  }, []);
-}
+import { GithubIcon, LinkedinIcon } from "lucide-react"
+import Link from "next/link"
+import { AboutMe } from "~/components/about-me"
+import { ContactMe } from "~/components/contact-me"
+import { Experience } from "~/components/experience"
+import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move"
+import HighlightOnScrollWrapper from "~/components/highlight-on-scroll-wrapper"
+import { ModeToggle } from "~/components/mode-toggle"
+import { ParagraphLink } from "~/components/paragraph-link"
+import { Projects } from "~/components/projects"
+import { Button } from "~/components/ui/button"
 
 export default function HomePage() {
-  useHighlightOnScroll();
-
   return (
-    <>
+    <HighlightOnScrollWrapper>
       <GradiantOnMouseMove />
 
       <div className="relative z-30 mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
@@ -74,12 +26,14 @@ export default function HomePage() {
 
             <Projects />
 
+            <ContactMe />
+
             <Footer />
           </main>
         </div>
       </div>
-    </>
-  );
+    </HighlightOnScrollWrapper>
+  )
 }
 
 function Header() {
@@ -90,7 +44,7 @@ function Header() {
         <h2 className="text-lg font-medium sm:text-xl">
           Software Engineer at BrightInsight
         </h2>
-        <p className="max-w-sm whitespace-nowrap font-light leading-normal">
+        <p className="max-w-sm font-light leading-normal lg:whitespace-nowrap">
           Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
         <nav
@@ -99,51 +53,50 @@ function Header() {
         >
           <Link
             href="#aboutMe"
-            className="group relative w-fit whitespace-nowrap"
+            className="group relative w-fit whitespace-nowrap tracking-widest"
           >
-            <span id="black" className="font-bold">
-              About me
-            </span>
+            <span className="font-bold">About me</span>
             <span
               id="linkaboutMe"
-              className={cn(
-                "absolute left-0 z-10 w-full overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0",
-                // { "w-full": isAboutMeActive, "w-0": !isAboutMeActive },
-              )}
+              className="absolute left-0 z-10 w-full overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               About me
             </span>
           </Link>
           <Link
             href="#experience"
-            className="group relative w-fit whitespace-nowrap"
+            className="group relative w-fit whitespace-nowrap tracking-widest"
           >
-            <span id="black" className="font-bold">
-              Experience
-            </span>
+            <span className="font-bold">Experience</span>
             <span
               id="linkexperience"
-              className={cn(
-                "absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0",
-              )}
+              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               Experience
             </span>
           </Link>
           <Link
             href="#projects"
-            className="group relative w-fit whitespace-nowrap"
+            className="group relative w-fit whitespace-nowrap tracking-widest"
           >
-            <span id="black" className="font-bold">
-              Projects
-            </span>
+            <span className="font-bold">Projects</span>
             <span
               id="linkprojects"
-              className={cn(
-                "absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0",
-              )}
+              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               Projects
+            </span>
+          </Link>
+          <Link
+            href="#contactMe"
+            className="group relative w-fit whitespace-nowrap tracking-widest"
+          >
+            <span className="font-bold">Contact Me</span>
+            <span
+              id="linkcontactMe"
+              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+            >
+              Contact Me
             </span>
           </Link>
         </nav>
@@ -177,12 +130,12 @@ function Header() {
         </li>
       </ul>
     </header>
-  );
+  )
 }
 
 function Footer() {
   return (
-    <footer className="pt-16 text-sm text-muted-foreground md:pt-24 lg:pt-36 ">
+    <footer className="pt-16 text-sm text-muted-foreground md:pt-24">
       <p>
         This site draws significant inspiration from{" "}
         <ParagraphLink href="https://brittanychiang.com/">
@@ -203,5 +156,5 @@ function Footer() {
         well.
       </p>
     </footer>
-  );
+  )
 }
