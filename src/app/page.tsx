@@ -58,7 +58,7 @@ function Header() {
             <span className="font-bold">About me</span>
             <span
               id="linkaboutMe"
-              className="absolute left-0 z-10 w-full overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               About me
             </span>
@@ -70,7 +70,7 @@ function Header() {
             <span className="font-bold">Experience</span>
             <span
               id="linkexperience"
-              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               Experience
             </span>
@@ -82,7 +82,7 @@ function Header() {
             <span className="font-bold">Projects</span>
             <span
               id="linkprojects"
-              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               Projects
             </span>
@@ -91,10 +91,12 @@ function Header() {
             href="#contactMe"
             className="group relative w-fit whitespace-nowrap tracking-widest"
           >
-            <span className="font-bold">Contact Me</span>
+            <span className="border-b-2 border-transparent font-bold">
+              Contact Me
+            </span>
             <span
               id="linkcontactMe"
-              className="absolute left-0 z-10 w-0 overflow-hidden font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
             >
               Contact Me
             </span>

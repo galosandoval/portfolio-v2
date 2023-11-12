@@ -57,10 +57,13 @@ export function ContactMe() {
   return (
     <section
       id="contactMe"
-      className="flex h-[75svh] flex-col justify-end gap-4"
+      className="flex h-[75svh] max-w-lg flex-col justify-end gap-4"
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col space-y-8"
+        >
           <p className="text-base">
             I&rsquo;m always open to new opportunities, so feel free to reach
             out.
@@ -97,8 +100,12 @@ export function ContactMe() {
               </FormItem>
             )}
           />
-          <Button loading={form.formState.isSubmitting} type="submit">
-            Submit
+          <Button
+            className="self-end"
+            loading={form.formState.isSubmitting}
+            type="submit"
+          >
+            Send
           </Button>
         </form>
       </Form>
