@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { Button } from "./ui/button";
-import { Card } from "./card";
-import Image from "next/image";
-import { GithubIcon, ZapIcon } from "lucide-react";
+import Link from "next/link"
+import { Button } from "./ui/button"
+import { Card } from "./card"
+import Image from "next/image"
+import { GithubIcon, ZapIcon } from "lucide-react"
+import { StickyTitle } from "./about-me"
 
 const projects = [
   {
@@ -15,14 +16,14 @@ const projects = [
       {
         icon: <GithubIcon className="h-4 w-4" />,
         label: "View on GitHub",
-        href: "https://github.com/galosandoval/recipe-chat/",
+        href: "https://github.com/galosandoval/recipe-chat/"
       },
       {
         icon: <ZapIcon className="h-4 w-4" />,
         label: "View Website",
-        href: "https://www.recipechat.app/",
-      },
-    ],
+        href: "https://www.recipechat.app/"
+      }
+    ]
   },
   {
     title: "Portfolio v1",
@@ -34,14 +35,14 @@ const projects = [
       {
         icon: <GithubIcon className="h-4 w-4" />,
         label: "View on GitHub",
-        href: "https://github.com/galosandoval/portfolio",
+        href: "https://github.com/galosandoval/portfolio"
       },
       {
         icon: <ZapIcon className="h-4 w-4" />,
         label: "View Website",
-        href: "https://galosandovalportfolio.vercel.app/",
-      },
-    ],
+        href: "https://galosandovalportfolio.vercel.app/"
+      }
+    ]
   },
   {
     title: "Breathing Helper",
@@ -53,16 +54,16 @@ const projects = [
       {
         icon: <GithubIcon className="h-4 w-4" />,
         label: "View on GitHub",
-        href: "https://github.com/galosandoval/478-breathing",
+        href: "https://github.com/galosandoval/478-breathing"
       },
       {
         icon: <ZapIcon className="h-4 w-4" />,
         label: "View Website",
-        href: "https://478-breathing.vercel.app/",
-      },
-    ],
-  },
-];
+        href: "https://478-breathing.vercel.app/"
+      }
+    ]
+  }
+]
 
 export function Projects() {
   return (
@@ -70,6 +71,8 @@ export function Projects() {
       id="projects"
       className="scroll-mb-80 pt-16 md:pt-24 lg:scroll-mt-24 lg:pt-36"
     >
+      <StickyTitle title="Projects" />
+
       <ol className="group/list flex flex-col gap-12">
         {projects.map((project) => (
           <Card
@@ -117,5 +120,5 @@ export function Projects() {
         ))}
       </ol>
     </section>
-  );
+  )
 }

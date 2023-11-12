@@ -44,7 +44,7 @@ function Header() {
         <h2 className="text-lg font-medium sm:text-xl">
           Software Engineer at BrightInsight
         </h2>
-        <p className="max-w-sm font-light leading-normal lg:whitespace-nowrap">
+        <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
           Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
         <nav
@@ -104,7 +104,7 @@ function Header() {
         </nav>
       </div>
 
-      <ul className="flex gap-2">
+      <ul className="flex gap-2 pt-8">
         <li>
           <ModeToggle />
         </li>

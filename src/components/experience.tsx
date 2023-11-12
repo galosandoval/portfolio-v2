@@ -1,19 +1,20 @@
-import { ArrowRightIcon, Link2Icon } from "lucide-react";
-import Link from "next/link";
-import { Card } from "./card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { ArrowRightIcon, Link2Icon } from "lucide-react"
+import Link from "next/link"
+import { Card } from "./card"
+import { Button } from "./ui/button"
+import { Badge } from "./ui/badge"
+import { StickyTitle } from "./about-me"
 
 type Job = {
-  from: string;
-  to: string;
-  prevTitles: string[];
-  titleAndCompany: string;
-  description: string;
-  badges: string[];
-  href: string;
-  links: { title: string; url: string }[];
-};
+  from: string
+  to: string
+  prevTitles: string[]
+  titleAndCompany: string
+  description: string
+  badges: string[]
+  href: string
+  links: { title: string; url: string }[]
+}
 
 const experience: Job[] = [
   {
@@ -30,10 +31,10 @@ const experience: Job[] = [
       "Redux",
       "TailwindCSS",
       "Vitest",
-      "BitBucket",
+      "BitBucket"
     ],
     links: [],
-    href: "https://brightinsight.com/disease-management-solution",
+    href: "https://brightinsight.com/disease-management-solution"
   },
   {
     from: "May 2021",
@@ -46,10 +47,10 @@ const experience: Job[] = [
       "Typescript/Javascript",
       "Agile",
       "React",
-      "IBM Hybrid Cloud Services",
+      "IBM Hybrid Cloud Services"
     ],
     links: [],
-    href: "https://www.ibm.com/impact/feature/apprenticeship",
+    href: "https://www.ibm.com/impact/feature/apprenticeship"
   },
   {
     from: "Feb 2017",
@@ -63,19 +64,21 @@ const experience: Job[] = [
       "Customer Service",
       "Leadership",
       "Financial Management",
-      "Operaitions Optimization",
+      "Operaitions Optimization"
     ],
     links: [
-      { title: "Upstatement", url: "https://upstatement.com" },
-      { title: "Harvard Business School", url: "https://hbs.edu" },
+      // { title: "Upstatement", url: "https://upstatement.com" },
+      // { title: "Harvard Business School", url: "https://hbs.edu" }
     ],
-    href: "https://gget.com/",
-  },
-];
+    href: "https://gget.com/"
+  }
+]
 
 export function Experience() {
   return (
     <section id="experience" className="lg:scroll-mt-24">
+      <StickyTitle title="Experience" />
+
       <ol className="group/list flex flex-col gap-12">
         {experience.map((job) => (
           <Job job={job} key={job.href} />
@@ -97,7 +100,7 @@ export function Experience() {
         </Link>
       </div>
     </section>
-  );
+  )
 }
 
 function Job({ job }: { job: Job }) {
@@ -163,5 +166,5 @@ function Job({ job }: { job: Job }) {
         </div>
       )}
     </Card>
-  );
+  )
 }

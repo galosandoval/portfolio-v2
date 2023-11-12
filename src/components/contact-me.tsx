@@ -15,6 +15,7 @@ import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { useToast } from "./ui/use-toast"
+import { StickyTitle } from "./about-me"
 
 const contactMeSchema = z.object({
   email: z.string().email(),
@@ -55,60 +56,60 @@ export function ContactMe() {
   }
 
   return (
-    <section
-      id="contactMe"
-      className="flex h-[75svh] max-w-lg flex-col justify-end gap-4"
-    >
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col space-y-8"
-        >
-          <p className="text-base">
-            I&rsquo;m always open to new opportunities, so feel free to reach
-            out.
-          </p>
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Ex: recruiter@google.com" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
-                    className="resize-none"
-                    placeholder="Ex: Lets connect..."
-                    {...field}
-                  />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button
-            className="self-end"
-            loading={form.formState.isSubmitting}
-            type="submit"
+    <section id="contactMe" className="max-w-lg gap-4 pt-10 lg:pt-0">
+      <StickyTitle title="Contact Me" />
+      <div className="flex h-[75svh] flex-col justify-end ">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col space-y-8"
           >
-            Send
-          </Button>
-        </form>
-      </Form>
+            <p className="text-base">
+              I&rsquo;m always open to new opportunities, so feel free to reach
+              out.
+            </p>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ex: recruiter@google.com" {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      className="resize-none"
+                      placeholder="Ex: Lets connect..."
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              className="self-end"
+              loading={form.formState.isSubmitting}
+              type="submit"
+            >
+              Send
+            </Button>
+          </form>
+        </Form>
+      </div>
     </section>
   )
 }
