@@ -63,7 +63,7 @@ export function ContactMe() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <p className="text-base">
             I&rsquo;m always open to new opportunities, so feel free to reach
-            out to
+            out.
           </p>
           <FormField
             control={form.control}
