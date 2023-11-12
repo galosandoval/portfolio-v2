@@ -58,7 +58,7 @@ export function ContactMe() {
   return (
     <section id="contactMe" className="max-w-lg gap-4 pt-10 lg:pt-0">
       <StickyTitle title="Contact Me" />
-      <div className="flex h-[75svh] flex-col justify-end ">
+      <div className="lg flex h-[75svh] flex-col justify-end xl:h-[80svh]">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
