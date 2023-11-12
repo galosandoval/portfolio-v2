@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Card } from "./card"
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
-import { StickyTitle } from "./about-me"
+import { StickyTitle } from "./sticky-title"
 
 type Job = {
   from: string

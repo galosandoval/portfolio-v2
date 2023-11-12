@@ -3,7 +3,7 @@ import { Button } from "./ui/button"
 import { Card } from "./card"
 import Image from "next/image"
 import { GithubIcon, ZapIcon } from "lucide-react"
-import { StickyTitle } from "./about-me"
+import { StickyTitle } from "./sticky-title"
 
 const projects = [
   {

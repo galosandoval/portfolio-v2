@@ -15,7 +15,7 @@ import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { useToast } from "./ui/use-toast"
-import { StickyTitle } from "./about-me"
+import { StickyTitle } from "./sticky-title"
 
 const contactMeSchema = z.object({
   email: z.string().email(),
