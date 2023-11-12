@@ -137,7 +137,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="pt-16 text-sm text-muted-foreground md:pt-24">
+    <footer className="pt-16 text-sm text-muted-foreground">
       <p>
         This site draws significant inspiration from{" "}
         <ParagraphLink href="https://brittanychiang.com/">
