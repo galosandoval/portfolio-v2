@@ -58,7 +58,7 @@ function Header() {
             <span className="font-bold">About me</span>
             <span
               id="linkaboutMe"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
             >
               About me
             </span>
@@ -70,19 +70,19 @@ function Header() {
             <span className="font-bold">Experience</span>
             <span
               id="linkexperience"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
             >
               Experience
             </span>
           </Link>
           <Link
             href="#projects"
-            className="group relative w-fit whitespace-nowrap tracking-widest"
+            className="group group relative w-fit whitespace-nowrap tracking-widest"
           >
             <span className="font-bold">Projects</span>
             <span
               id="linkprojects"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
             >
               Projects
             </span>
@@ -96,7 +96,7 @@ function Header() {
             </span>
             <span
               id="linkcontactMe"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full motion-reduce:duration-0"
+              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
             >
               Contact Me
             </span>
