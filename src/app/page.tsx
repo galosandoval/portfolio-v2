@@ -1,4 +1,5 @@
 import { GithubIcon, LinkedinIcon } from "lucide-react"
+import { type Metadata } from "next"
 import Link from "next/link"
 import { AboutMe } from "~/components/about-me"
 import { ContactMe } from "~/components/contact-me"
@@ -9,6 +10,27 @@ import { ModeToggle } from "~/components/mode-toggle"
 import { ParagraphLink } from "~/components/paragraph-link"
 import { Projects } from "~/components/projects"
 import { Button } from "~/components/ui/button"
+
+export const metadata: Metadata = {
+  title: "Galo Sandoval",
+  description: "Galo Sandoval is a software engineer based in Los Angeles.",
+  icons: [
+    { rel: "apple-touch-icon", sizes: "180x180", url: "/apple-touch-icon.png" },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon-32x32.png"
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      url: "/favicon-32x32.png"
+    }
+  ],
+  manifest: "/site.webmanifest"
+}
 
 export default function HomePage() {
   return (

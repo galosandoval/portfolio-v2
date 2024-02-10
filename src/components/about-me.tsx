@@ -42,24 +42,24 @@ export function AboutMe() {
 
       <p>
         Beyond work, I&rsquo;m passionate about{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/chef-hat.svg),_pointer]">
+        <span className="group/formula inline-flex font-bold lg:cursor-[url(/chef-hat.svg),_pointer]">
           <AnimateString string={cooking} />
         </span>
         ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/golf.svg),_pointer]">
+        <span className="group/formula inline-flex font-bold lg:cursor-[url(/golf.svg),_pointer]">
           <AnimateString string={golf} />
         </span>
         ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/dancing.svg),_pointer]">
+        <span className="group/formula inline-flex font-bold lg:cursor-[url(/dancing.svg),_pointer]">
           <AnimateString string={dancing} />
         </span>
         ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/racecar.svg),_pointer]">
+        <span className="group/formula inline-flex font-bold lg:cursor-[url(/racecar.svg),_pointer]">
           <span className="sr-only">{formulaOne}</span>
           <AnimateString string={formulaOne} />
         </span>
         , and active participation in a{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/images/football.svg),_pointer]">
+        <span className="group/formula inline-flex font-bold lg:cursor-[url(/football.svg),_pointer]">
           <AnimateString string={flagFootball} />
         </span>
         .
