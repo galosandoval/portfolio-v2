@@ -63,12 +63,6 @@ function Header() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="flex flex-col gap-4">
-        <Image
-          width={150}
-          height={150}
-          alt="logo"
-          src="/android-chrome-512x512.png"
-        />
         <h1 className="text-4xl font-bold sm:text-5xl">Galo Sandoval</h1>
         <h2 className="text-lg font-medium sm:text-xl">
           Software Engineer at BrightInsight
