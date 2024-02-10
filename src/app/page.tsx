@@ -1,5 +1,6 @@
 import { GithubIcon, LinkedinIcon } from "lucide-react"
 import { type Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { AboutMe } from "~/components/about-me"
 import { ContactMe } from "~/components/contact-me"
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      url: "/favicon-32x32.png"
+      url: "/favicon-16x16.png"
     }
   ],
   manifest: "/site.webmanifest"
@@ -62,6 +63,12 @@ function Header() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="flex flex-col gap-4">
+        <Image
+          width={150}
+          height={150}
+          alt="logo"
+          src="/android-chrome-512x512.png"
+        />
         <h1 className="text-4xl font-bold sm:text-5xl">Galo Sandoval</h1>
         <h2 className="text-lg font-medium sm:text-xl">
           Software Engineer at BrightInsight
@@ -69,61 +76,7 @@ function Header() {
         <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
           Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
-        <nav
-          id="navigation"
-          className="nav hidden flex-col justify-start pt-16 lg:flex"
-        >
-          <Link
-            href="#aboutMe"
-            className="group relative w-fit whitespace-nowrap tracking-widest"
-          >
-            <span className="font-bold">About me</span>
-            <span
-              id="linkaboutMe"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
-            >
-              About me
-            </span>
-          </Link>
-          <Link
-            href="#experience"
-            className="group relative w-fit whitespace-nowrap tracking-widest"
-          >
-            <span className="font-bold">Experience</span>
-            <span
-              id="linkexperience"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
-            >
-              Experience
-            </span>
-          </Link>
-          <Link
-            href="#projects"
-            className="group group relative w-fit whitespace-nowrap tracking-widest"
-          >
-            <span className="font-bold">Projects</span>
-            <span
-              id="linkprojects"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
-            >
-              Projects
-            </span>
-          </Link>
-          <Link
-            href="#contactMe"
-            className="group relative w-fit whitespace-nowrap tracking-widest"
-          >
-            <span className="border-b-2 border-transparent font-bold">
-              Contact Me
-            </span>
-            <span
-              id="linkcontactMe"
-              className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
-            >
-              Contact Me
-            </span>
-          </Link>
-        </nav>
+        <Navigation />
       </div>
 
       <ul className="flex gap-2 pt-8">
@@ -154,6 +107,66 @@ function Header() {
         </li>
       </ul>
     </header>
+  )
+}
+
+function Navigation() {
+  return (
+    <nav
+      id="navigation"
+      className="nav hidden flex-col justify-start pt-16 lg:flex"
+    >
+      <Link
+        href="#aboutMe"
+        className="group relative w-fit whitespace-nowrap tracking-widest"
+      >
+        <span className="font-bold">About me</span>
+        <span
+          id="linkaboutMe"
+          className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
+        >
+          About me
+        </span>
+      </Link>
+      <Link
+        href="#experience"
+        className="group relative w-fit whitespace-nowrap tracking-widest"
+      >
+        <span className="font-bold">Experience</span>
+        <span
+          id="linkexperience"
+          className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
+        >
+          Experience
+        </span>
+      </Link>
+      <Link
+        href="#projects"
+        className="group group relative w-fit whitespace-nowrap tracking-widest"
+      >
+        <span className="font-bold">Projects</span>
+        <span
+          id="linkprojects"
+          className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
+        >
+          Projects
+        </span>
+      </Link>
+      <Link
+        href="#contactMe"
+        className="group relative w-fit whitespace-nowrap tracking-widest"
+      >
+        <span className="border-b-2 border-transparent font-bold">
+          Contact Me
+        </span>
+        <span
+          id="linkcontactMe"
+          className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
+        >
+          Contact Me
+        </span>
+      </Link>
+    </nav>
   )
 }
 
