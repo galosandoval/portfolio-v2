@@ -5,12 +5,6 @@ import { ThemeProvider } from "~/components/theme-provider"
 import { SkipToContent } from "~/components/skip-to-content"
 import { Toaster } from "~/components/ui/toaster"
 
-export const metadata = {
-  title: "Galo Sandoval",
-  description: "Galo Sandoval is a software engineer based in Los Angeles.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }]
-}
-
 export default function RootLayout({
   children
 }: {

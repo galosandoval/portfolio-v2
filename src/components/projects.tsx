@@ -11,7 +11,7 @@ const projects = [
     description:
       "An app that uses ChatGPT to generate recipes. Save, edit, and make grocery lists from your favorite recipes.",
     href: "https://recipechat.app/",
-    imgSrc: "/images/recipechat.png",
+    imgSrc: "/recipechat.png",
     links: [
       {
         icon: <GithubIcon className="h-4 w-4" />,
@@ -30,7 +30,7 @@ const projects = [
     description:
       "My first portfolio site. Built with React and Styled Components.",
     href: "https://galosandovalportfolio.vercel.app/",
-    imgSrc: "/images/portfolio-v1.png",
+    imgSrc: "/portfolio-v1.png",
     links: [
       {
         icon: <GithubIcon className="h-4 w-4" />,
@@ -49,7 +49,7 @@ const projects = [
     description:
       "Breathing exercises can improve your well-being. With the 4-7-8 Breathing Helper, control your cravings and sleep faster. You'll find links to more information in the app.",
     href: "https://478-breathing.vercel.app/",
-    imgSrc: "/images/breathe-helper.png",
+    imgSrc: "/breathe-helper.png",
     links: [
       {
         icon: <GithubIcon className="h-4 w-4" />,
