@@ -1,5 +1,5 @@
 import { ParagraphLink } from "./paragraph-link"
-import { AnimateString } from "./animate-string"
+import { AnimatedLetters } from "./animate-string"
 import { StickyTitle } from "./sticky-title"
 
 export function AboutMe() {
@@ -42,27 +42,14 @@ export function AboutMe() {
 
       <p>
         Beyond work, I&rsquo;m passionate about{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/chef-hat.svg),_pointer]">
-          <AnimateString string={cooking} />
+        <span className="group/formula relative inline-flex overflow-hidden font-bold lg:cursor-[url(/chef-hat.svg),_pointer]">
+          <AnimatedLetters letters={cooking} fileName="chef-hat.svg" />
         </span>
-        ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/golf.svg),_pointer]">
-          <AnimateString string={golf} />
-        </span>
-        ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/dancing.svg),_pointer]">
-          <AnimateString string={dancing} />
-        </span>
-        ,{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/racecar.svg),_pointer]">
-          <span className="sr-only">{formulaOne}</span>
-          <AnimateString string={formulaOne} />
-        </span>
-        , and active participation in a{" "}
-        <span className="group/formula inline-flex font-bold lg:cursor-[url(/football.svg),_pointer]">
-          <AnimateString string={flagFootball} />
-        </span>
-        .
+        , <AnimatedLetters letters={golf} fileName="golf.svg" />,{" "}
+        <AnimatedLetters letters={dancing} fileName="dancing.svg" />,{" "}
+        <AnimatedLetters letters={formulaOne} fileName="racecar.svg" />, and
+        active participation in a{" "}
+        <AnimatedLetters letters={flagFootball} fileName="football.svg" />.
       </p>
     </section>
   )

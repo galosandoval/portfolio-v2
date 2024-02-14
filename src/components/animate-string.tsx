@@ -1,5 +1,25 @@
-export function AnimateString({ string }: { string: string }) {
-  return string.split("").map((letter, index) => {
+export function AnimatedLetters({
+  letters,
+  fileName
+}: {
+  letters: string
+  fileName: string
+}) {
+  return (
+    <span
+      className={`group/formula relative inline-flex overflow-hidden font-bold`}
+      style={{
+        cursor: `url(/${fileName}), pointer`
+      }}
+    >
+      <span className="sr-only">{letters}</span>
+      <Letters input={letters} />
+    </span>
+  )
+}
+
+function Letters({ input }: { input: string }) {
+  return input.split("").map((letter, index) => {
     if (letter === " ")
       return (
         <span
@@ -9,7 +29,7 @@ export function AnimateString({ string }: { string: string }) {
         >
           &nbsp;
         </span>
-      );
+      )
 
     return (
       <span
@@ -19,6 +39,6 @@ export function AnimateString({ string }: { string: string }) {
       >
         {letter}
       </span>
-    );
-  });
+    )
+  })
 }
