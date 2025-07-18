@@ -18,8 +18,45 @@ type Job = {
 
 const experience: Job[] = [
   {
-    from: "Jan 2022",
+    from: "Sep 2024",
     to: "Present",
+    prevTitles: [],
+    titleAndCompany: "Senior Frontend Developer · Spider Strategies",
+    description:
+      "At Spider Strategies, I enhance form creation tools, maintain and optimize a large legacy JavaScript codebase, and collaborate with backend teams to deliver integrated features. I have adapted quickly to a complex tech stack, consistently improving usability, performance, and code quality.",
+    badges: [
+      "Javascript",
+      "Typescript",
+      "Java",
+      "Kotlin",
+      "Jasmine Testing",
+      "Github"
+    ],
+    links: [],
+    href: "https://www.spiderstrategies.com/"
+  },
+  {
+    from: "Feb 2024",
+    to: "Sep 2024",
+    prevTitles: [],
+    titleAndCompany: "Software Engineer · Codifi",
+    description:
+      "At Codifi, I worked closely with business stakeholders and cross-functional teams to design and deliver mobile and web solutions. I built and maintained APIs, developed mobile apps with enhanced UX, and collaborated on both frontend and backend projects. My work included defining technical stories, testing, and deploying integrated solutions.",
+    badges: [
+      "React Native",
+      "Typescript",
+      "Figma",
+      "Realm",
+      "TailwindCSS",
+      "Vitest",
+      "Github"
+    ],
+    links: [],
+    href: "https://codifi.com/"
+  },
+  {
+    from: "Jan 2022",
+    to: "Feb 2024",
     prevTitles: ["React Engineer"],
     titleAndCompany: "Software Engineer · BrightInsight",
     description:

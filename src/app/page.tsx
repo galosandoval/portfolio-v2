@@ -64,7 +64,7 @@ function Header() {
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold sm:text-5xl">Galo Sandoval</h1>
         <h2 className="text-lg font-medium sm:text-xl">
-          Software Engineer at BrightInsight
+          Senior Frontend Developer at Spider Strategies
         </h2>
         <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
           Passionate App Developer | Web Enthusiast | Culinary Explorer

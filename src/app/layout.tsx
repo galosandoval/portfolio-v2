@@ -1,5 +1,5 @@
 import "~/styles/globals.css"
-import { GeistSans } from "geist/font"
+import { GeistSans } from "geist/font/sans"
 import { cn } from "~/lib/utils"
 import { ThemeProvider } from "~/components/theme-provider"
 import { SkipToContent } from "~/components/skip-to-content"
