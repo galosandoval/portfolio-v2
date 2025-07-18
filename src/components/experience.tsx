@@ -27,6 +27,7 @@ const experience: Job[] = [
     badges: [
       "Javascript",
       "Typescript",
+      "Backbone.js",
       "Java",
       "Kotlin",
       "Jasmine Testing",
