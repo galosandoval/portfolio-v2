@@ -13,8 +13,45 @@ const contactMeSchema = z.object({
     .max(500, "Must be less than 500 characters")
 })
 
+// Basic in-memory rate limit: max requests per IP within the window.
+// Note: this resets on cold starts and isn't shared across serverless
+// instances. It's a lightweight first line of defense — for stronger
+// guarantees back it with a shared store (e.g. Upstash Redis).
+const RATE_LIMIT = 5
+const WINDOW_MS = 60_000
+const hits = new Map<string, { count: number; resetAt: number }>()
+
+function isRateLimited(ip: string) {
+  const now = Date.now()
+  const entry = hits.get(ip)
+
+  if (!entry || now > entry.resetAt) {
+    hits.set(ip, { count: 1, resetAt: now + WINDOW_MS })
+    return false
+  }
+
+  entry.count += 1
+  return entry.count > RATE_LIMIT
+}
+
 export async function POST(request: Request) {
-  const input = contactMeSchema.parse(await request.json())
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown"
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    )
+  }
+
+  const parsed = contactMeSchema.safeParse(await request.json())
+
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Invalid input." }, { status: 400 })
+  }
+
+  const input = parsed.data
 
   try {
     const data = await resend.emails.send({
@@ -25,7 +62,10 @@ export async function POST(request: Request) {
     })
 
     return NextResponse.json(data)
-  } catch (error) {
-    return NextResponse.json({ error })
+  } catch {
+    return NextResponse.json(
+      { error: "Failed to send message." },
+      { status: 500 }
+    )
   }
 }
