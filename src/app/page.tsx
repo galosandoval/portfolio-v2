@@ -71,15 +71,7 @@ function Header() {
         </p>
         <Navigation />
 
-        <Button
-          asChild
-          className="mt-2 w-fit hover:animate-glow-pulse motion-reduce:animate-none"
-        >
-          <Link href="#contactMe" id="contactMeButton">
-            <MailIcon className="mr-2 h-4 w-4" />
-            Contact Me
-          </Link>
-        </Button>
+
       </div>
 
       <ul className="flex gap-2 pt-8">
@@ -155,6 +147,16 @@ function Navigation() {
           Projects
         </span>
       </Link>
+
+      <Button
+        asChild
+        className="mt-2 w-fit hover:animate-glow-pulse motion-reduce:animate-none"
+      >
+        <Link href="#contactMe" id="contactMeButton">
+          <MailIcon className="mr-2 h-4 w-4" />
+          Contact Me
+        </Link>
+      </Button>
     </nav>
   )
 }
