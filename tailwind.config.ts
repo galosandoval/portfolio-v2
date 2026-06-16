@@ -63,10 +63,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--primary) / 0)" },
+          "50%": { boxShadow: "0 0 16px 3px hsl(var(--primary) / 0.6)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
     },
   },
