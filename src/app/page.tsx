@@ -69,9 +69,19 @@ function Header() {
         <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
           Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
-        <Navigation />
+        <div>
+          <Navigation />
 
-
+          <Button
+            asChild
+            className="w-fit mt-2 hover:animate-glow-pulse motion-reduce:animate-none"
+          >
+            <Link href="#contactMe" id="contactMeButton">
+              <MailIcon className="mr-2 h-4 w-4" />
+              Contact Me
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <ul className="flex gap-2 pt-8">
@@ -147,16 +157,6 @@ function Navigation() {
           Projects
         </span>
       </Link>
-
-      <Button
-        asChild
-        className="mt-2 w-fit hover:animate-glow-pulse motion-reduce:animate-none"
-      >
-        <Link href="#contactMe" id="contactMeButton">
-          <MailIcon className="mr-2 h-4 w-4" />
-          Contact Me
-        </Link>
-      </Button>
     </nav>
   )
 }
