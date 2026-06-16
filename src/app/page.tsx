@@ -1,4 +1,4 @@
-import { GithubIcon, LinkedinIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react"
 import { type Metadata } from "next"
 import Link from "next/link"
 import { AboutMe } from "~/components/about-me"
@@ -70,6 +70,16 @@ function Header() {
           Passionate App Developer | Web Enthusiast | Culinary Explorer
         </p>
         <Navigation />
+
+        <Button
+          asChild
+          className="mt-2 w-fit hover:animate-glow-pulse motion-reduce:animate-none"
+        >
+          <Link href="#contactMe" id="contactMeButton">
+            <MailIcon className="mr-2 h-4 w-4" />
+            Contact Me
+          </Link>
+        </Button>
       </div>
 
       <ul className="flex gap-2 pt-8">
@@ -143,20 +153,6 @@ function Navigation() {
           className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
         >
           Projects
-        </span>
-      </Link>
-      <Link
-        href="#contactMe"
-        className="group relative w-fit whitespace-nowrap tracking-widest"
-      >
-        <span className="border-b-2 border-transparent font-bold">
-          Contact Me
-        </span>
-        <span
-          id="linkcontactMe"
-          className="absolute left-0 z-10 w-0 overflow-hidden border-b-2 border-b-primary font-bold text-primary duration-500 group-hover:w-full group-focus-visible:w-full motion-reduce:duration-0"
-        >
-          Contact Me
         </span>
       </Link>
     </nav>

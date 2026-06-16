@@ -27,23 +27,23 @@ export default function HighlightOnScrollWrapper({
         const sectionId = current.getAttribute("id")
 
         /*
-    - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
-    - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
+    - If our current scroll position enters the space where current section on screen is, mark the corresponding nav link / button as active, else clear it
+    - To know which element needs the active state, we use the sectionId we get while looping through sections as a selector
     */
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        const isActive =
+          scrollY > sectionTop && scrollY <= sectionTop + sectionHeight
+
+        // The Contact Me section drives the header CTA's glow instead of a nav link
+        const navLink = document.querySelector(
+          "#navigation span[id=link" + sectionId + "]"
+        )
+        navLink?.classList.toggle("w-full", isActive)
+        navLink?.classList.toggle("w-0", !isActive)
+
+        if (sectionId === "contactMe") {
           document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.add("w-full")
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.remove("w-0")
-        } else {
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.remove("w-full")
-          document
-            ?.querySelector("#navigation span[id=link" + sectionId + "]")!
-            .classList.add("w-0")
+            .getElementById("contactMeButton")
+            ?.classList.toggle("animate-glow-pulse", isActive)
         }
       })
     }
