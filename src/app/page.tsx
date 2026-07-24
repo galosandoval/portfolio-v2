@@ -5,6 +5,7 @@ import { AboutMe } from "~/components/about-me"
 import { ContactMe } from "~/components/contact-me"
 import { Experience } from "~/components/experience"
 import { GradiantOnMouseMove } from "~/components/gradient-on-mouse-move"
+import { HeroParticleField } from "~/components/hero-particle-field"
 import HighlightOnScrollWrapper from "~/components/highlight-on-scroll-wrapper"
 import { ModeToggle } from "~/components/mode-toggle"
 import { ParagraphLink } from "~/components/paragraph-link"
@@ -36,6 +37,7 @@ export default function HomePage() {
   return (
     <HighlightOnScrollWrapper>
       <GradiantOnMouseMove />
+      <HeroParticleField />
 
       <div className="relative z-30 mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
