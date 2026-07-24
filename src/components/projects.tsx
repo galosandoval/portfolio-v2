@@ -9,7 +9,7 @@ const projects = [
   {
     title: "RecipeChat",
     description:
-      "An app that uses ChatGPT to generate recipes. Save, edit, and make grocery lists from your favorite recipes.",
+      "An AI recipe assistant that generates, saves, and organizes recipes through chat. Every recipe is embedded and stored in a Postgres/pgvector database, powering semantic search, de-duplication against your saved collection, and a recipe cache that skips full regeneration for near-identical requests.",
     href: "https://recipechat.app/",
     imgSrc: "/recipechat.png",
     links: [

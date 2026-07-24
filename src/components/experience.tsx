@@ -23,7 +23,7 @@ const experience: Job[] = [
     prevTitles: [],
     titleAndCompany: "Senior Frontend Developer · Spider Strategies",
     description:
-      "At Spider Strategies, I maintain and enhance a large-scale enterprise web application built with JavaScript, jQuery, and Backbone.js, backed by Java and Kotlin. I built a custom client.ts module that automatically types every backend controller so the frontend receives fully typed responses, helping introduce TypeScript to this legacy codebase. I also diagnose and refactor legacy front-end code and collaborate with QA and product teams to ship stable, performant releases while advocating for modern best practices.",
+      "At Spider Strategies, I set technical direction for the ongoing TypeScript migration of a large-scale enterprise web application originally built with JavaScript, jQuery, and Backbone.js, backed by Java and Kotlin. I designed and own the typed client layer, a custom client.ts module that automatically types every backend controller, and use it as the foundation for migrating the codebase incrementally without disrupting releases. I mentor engineers adopting TypeScript for the first time, weigh in on architecture across the frontend, and partner with QA and product to ship stable, performant releases.",
     badges: [
       "Javascript",
       "Typescript",

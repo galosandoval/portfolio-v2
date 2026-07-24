@@ -17,27 +17,29 @@ export function AboutMe() {
       <StickyTitle title="About Me" />
 
       <p>
-        My coding journey began with a{" "}
-        <ParagraphLink href="https://www.bloomtech.com/">
-          fullstack web development boot camp
+        I&rsquo;m a senior frontend engineer who gravitates toward the systems
+        other people avoid. At{" "}
+        <ParagraphLink href="https://www.spiderstrategies.com/">
+          Spider Strategies
         </ParagraphLink>
-        , where I honed my skills in web development. Proficient in React.js,
-        TypeScript, and Agile methodologies, I&rsquo;ve transitioned from boot
-        camp graduate to an{" "}
-        <ParagraphLink href="https://www.ibm.com/impact/feature/apprenticeship">
-          application developer apprentice
-        </ParagraphLink>
-        . This experience laid the foundation for my journey as a software
-        engineer.
+        , I set technical direction for an in-flight TypeScript migration,
+        own the typed client layer I built to bridge our JavaScript/jQuery/Backbone
+        frontend with a Java and Kotlin backend, and mentor
+        engineers navigating the shift to modern patterns.
       </p>
 
       <p>
-        Currently, I excel as a software engineer at a {""}
-        <ParagraphLink href="https://brightinsight.com/">
-          medtech company
+        That instinct for untangling complexity started with a{" "}
+        <ParagraphLink href="https://www.bloomtech.com/">
+          fullstack web development boot camp
+        </ParagraphLink>{" "}
+        and an{" "}
+        <ParagraphLink href="https://www.ibm.com/impact/feature/apprenticeship">
+          application developer apprenticeship at IBM
         </ParagraphLink>
-        , emphasizing user-centric design, operational efficiency, and seamless
-        experiences.
+        , followed by several years shipping React and TypeScript products
+        for healthcare and mobile teams. Enterprise or startup, legacy or
+        greenfield, I get productive fast in unfamiliar codebases.
       </p>
 
       <p>

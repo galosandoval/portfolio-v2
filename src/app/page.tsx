@@ -69,7 +69,7 @@ function Header() {
           Senior Frontend Developer at Spider Strategies
         </h2>
         <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
-          Passionate App Developer | Web Enthusiast | Culinary Explorer
+          Enterprise Frontend Engineer | TypeScript Migrations | RAG Systems
         </p>
         <div>
           <Navigation />
