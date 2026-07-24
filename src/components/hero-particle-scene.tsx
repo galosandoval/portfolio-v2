@@ -42,7 +42,7 @@ function Scene() {
       pointsRef.current.rotation.y += delta * 0.02
     }
 
-    state.camera.position.z = THREE.MathUtils.lerp(5, -20, t)
+    state.camera.position.z = THREE.MathUtils.lerp(5, -15, t)
     if (state.camera instanceof THREE.PerspectiveCamera) {
       state.camera.fov = THREE.MathUtils.lerp(60, 90, t)
       state.camera.updateProjectionMatrix()
@@ -66,10 +66,13 @@ function Scene() {
 }
 
 /**
- * Tracks whole-page scroll progress (0 to 1) via GSAP ScrollTrigger and
- * exposes it as a ref so useFrame can read it every frame without
- * triggering React re-renders. Respects prefers-reduced-motion by freezing
- * progress at 0 instead of registering the scrub.
+ * Tracks scroll progress (0 to 1) from the top of the page through the end
+ * of the Projects section via GSAP ScrollTrigger, exposing it as a ref so
+ * useFrame can read it every frame without triggering React re-renders. The
+ * flythrough completes right as Contact Me scrolls into view, so the
+ * particle field is gone by the time that section is on screen. Respects
+ * prefers-reduced-motion by freezing progress at 0 instead of registering
+ * the scrub.
  */
 function useScrollProgress() {
   const progress = useRef(0)
@@ -83,7 +86,8 @@ function useScrollProgress() {
     const trigger = ScrollTrigger.create({
       trigger: document.body,
       start: "top top",
-      end: "bottom bottom",
+      endTrigger: "#contactMe",
+      end: "top top",
       scrub: true,
       onUpdate: (self) => {
         progress.current = self.progress
