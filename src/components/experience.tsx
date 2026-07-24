@@ -177,7 +177,15 @@ function Job({ job }: { job: Job }) {
           ))}
       </div>
 
-      <p className="leading-normal">{job.description}</p>
+      {job.badges.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {job.badges.map((badge) => (
+            <Badge variant="outline" key={badge}>{badge}</Badge>
+          ))}
+        </div>
+      )}
+
+      <p className="leading-normal pb-2">{job.description}</p>
 
       {job.links.length > 0 && (
         <div className="flex flex-wrap gap-x-2">
@@ -193,14 +201,6 @@ function Job({ job }: { job: Job }) {
                 {link.title}
               </Link>
             </Button>
-          ))}
-        </div>
-      )}
-
-      {job.badges.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {job.badges.map((badge) => (
-            <Badge key={badge}>{badge}</Badge>
           ))}
         </div>
       )}
