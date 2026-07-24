@@ -81,7 +81,7 @@ export function Projects() {
               <Image
                 alt="recipe chat landing page"
                 src={project.imgSrc}
-                className="rounded-md border-2 border-background transition group-hover:border-primary sm:order-1 sm:col-span-2 sm:translate-y-1"
+                className="rounded-md border-2 border-background transition group-hover:border-primary group-focus-within:border-primary sm:order-1 sm:col-span-2 sm:translate-y-1"
                 height={48}
                 width={200}
               />
