@@ -9,14 +9,13 @@ const HeroParticleScene = dynamic(() => import("./hero-particle-scene"), {
 
 /**
  * Decorative full-viewport 3D particle background behind the hero and the
- * sections that follow it. Only renders on desktop and when the user hasn't
- * requested reduced motion, and disappears once the Contact Me section
- * scrolls into view. Fails silently if WebGL is unavailable — this is a
- * visual flourish, not content.
+ * rest of the page. Only renders on desktop and when the user hasn't
+ * requested reduced motion. Fails silently if WebGL is unavailable — this
+ * is a visual flourish, not content.
  */
 export function HeroParticleField() {
-  const shouldRender = useShouldRenderScene()
-  if (!shouldRender) return null
+  const isEligibleViewport = useIsEligibleViewport()
+  if (!isEligibleViewport) return null
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 opacity-70">
@@ -27,10 +26,9 @@ export function HeroParticleField() {
   )
 }
 
-function useShouldRenderScene() {
+function useIsEligibleViewport() {
   const [isDesktop, setIsDesktop] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const [isBeforeContactMe, setIsBeforeContactMe] = useState(true)
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 1024px)")
@@ -51,19 +49,7 @@ function useShouldRenderScene() {
     }
   }, [])
 
-  useEffect(() => {
-    const contactMe = document.getElementById("contactMe")
-    if (!contactMe) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsBeforeContactMe(!entry?.isIntersecting),
-      { rootMargin: "0px 0px -50% 0px" }
-    )
-    observer.observe(contactMe)
-    return () => observer.disconnect()
-  }, [])
-
-  return isDesktop && !prefersReducedMotion && isBeforeContactMe
+  return isDesktop && !prefersReducedMotion
 }
 
 class HeroSceneErrorBoundary extends Component<

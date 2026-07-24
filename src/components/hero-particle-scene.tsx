@@ -12,8 +12,7 @@ const PARTICLE_COUNT = 2000
 
 /**
  * A starfield of instanced points the camera flies through as the page
- * scrolls, mounted as a full-viewport background from the top of the page
- * down to the Contact Me section.
+ * scrolls, mounted as a full-viewport background for the whole page.
  */
 export default function HeroParticleScene() {
   return (
@@ -67,12 +66,10 @@ function Scene() {
 }
 
 /**
- * Tracks scroll progress (0 to 1) from the top of the page to the top of
- * the Contact Me section — the scene's full visible lifetime, since
- * HeroParticleField unmounts it once Contact Me scrolls into view — via
- * GSAP ScrollTrigger, exposed as a ref so useFrame can read it every frame
- * without triggering React re-renders. Respects prefers-reduced-motion by
- * freezing progress at 0 instead of registering the scrub.
+ * Tracks whole-page scroll progress (0 to 1) via GSAP ScrollTrigger and
+ * exposes it as a ref so useFrame can read it every frame without
+ * triggering React re-renders. Respects prefers-reduced-motion by freezing
+ * progress at 0 instead of registering the scrub.
  */
 function useScrollProgress() {
   const progress = useRef(0)
@@ -86,8 +83,7 @@ function useScrollProgress() {
     const trigger = ScrollTrigger.create({
       trigger: document.body,
       start: "top top",
-      endTrigger: "#contactMe",
-      end: "top top",
+      end: "bottom bottom",
       scrub: true,
       onUpdate: (self) => {
         progress.current = self.progress
