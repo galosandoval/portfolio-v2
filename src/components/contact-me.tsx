@@ -37,18 +37,18 @@ export function ContactMe() {
   const { toast } = useToast()
   const emailInputRef = useRef<HTMLInputElement | null>(null)
 
-  // Focus the email input once it scrolls into view (e.g. after the header's
-  // Contact Me CTA scrolls the page down). preventScroll keeps it from fighting
-  // the smooth scroll, and we disconnect so it only fires once.
+  // Focus the email input each time it scrolls into view (e.g. after the
+  // header's Contact Me CTA scrolls the page down), unless the user has
+  // already filled it out. preventScroll keeps it from fighting the smooth
+  // scroll.
   useEffect(() => {
     const input = emailInputRef.current
     if (!input) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) {
+        if (entry?.isIntersecting && !form.getValues("email")) {
           input.focus({ preventScroll: true })
-          observer.disconnect()
         }
       },
       { threshold: 0.6 }
@@ -56,7 +56,7 @@ export function ContactMe() {
 
     observer.observe(input)
     return () => observer.disconnect()
-  }, [])
+  }, [form])
 
   async function onSubmit(values: z.infer<typeof contactMeSchema>) {
     const res = await fetch("/api/send-mail", {
