@@ -17,8 +17,11 @@ export function AboutMe() {
       <StickyTitle title="About Me" />
 
       <p>
-        I&rsquo;m a senior frontend engineer who gravitates toward the systems
-        other people avoid. At{" "}
+        I&rsquo;m a senior frontend engineer who gravitates toward the
+        systems other people avoid — 5+ years modernizing legacy codebases
+        into type-safe, component-based architecture for Fortune 500
+        healthcare, data, and analytics platforms, without disrupting the
+        production systems they depend on. At{" "}
         <ParagraphLink href="https://www.spiderstrategies.com/">
           Spider Strategies
         </ParagraphLink>

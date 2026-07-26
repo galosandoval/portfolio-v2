@@ -10,7 +10,8 @@ type Job = {
   to: string
   prevTitles: string[]
   titleAndCompany: string
-  description: string
+  summary: string
+  bullets: string[]
   badges: string[]
   href: string
   links: { title: string; url: string }[]
@@ -22,8 +23,14 @@ const experience: Job[] = [
     to: "Present",
     prevTitles: [],
     titleAndCompany: "Senior Frontend Developer · Spider Strategies",
-    description:
-      "At Spider Strategies, I set technical direction for the ongoing TypeScript migration of a large-scale enterprise web application originally built with JavaScript, jQuery, and Backbone.js, backed by Java and Kotlin. I designed and own the typed client layer, a custom client.ts module that automatically types every backend controller, and use it as the foundation for migrating the codebase incrementally without disrupting releases. I mentor engineers adopting TypeScript for the first time, weigh in on architecture across the frontend, and partner with QA and product to ship stable, performant releases.",
+    summary:
+      "Modernizing legacy JavaScript, jQuery, and Backbone.js architecture into maintainable React features for a global user base, partnering with backend engineers on Java/Kotlin services.",
+    bullets: [
+      "Built an internal typing layer across backend controllers, giving engineers and AI tooling instant type inference and eliminating a class of untyped-payload bugs.",
+      "Replaced dialog-based navigation with cached tabs across 10+ app sections, engineering per-section caching so tab switches load instantly instead of re-fetching.",
+      "Owned the Forms section and built a customizable buttons widget, wiring multiple buttons to actions — widget-state changes, alerts, record saves, and form-variable updates.",
+      "Bridged performance gaps in a fragile legacy JS codebase, cutting key screen load times by up to 5 seconds through rendering and asset-delivery fixes."
+    ],
     badges: [
       "Javascript",
       "Typescript",
@@ -42,8 +49,13 @@ const experience: Job[] = [
     to: "Sep 2024",
     prevTitles: [],
     titleAndCompany: "Software Engineer · Codifi",
-    description:
-      "At Codifi, I worked closely with business stakeholders and cross-functional teams to design and deliver mobile and web solutions. I built and maintained APIs, developed mobile apps with enhanced UX, and collaborated on both frontend and backend projects. My work included defining technical stories, testing, and deploying integrated solutions.",
+    summary:
+      "Built mobile and web tooling for archaeological field teams using React Native, Redux, and Realm, with offline-first data sync and mapping.",
+    bullets: [
+      "Modernized the frontend architecture with new React libraries, cutting development time 10% and easing long-term maintenance.",
+      "Championed an offline-first Mapbox mapping feature, lifting field data reliability 30% in low-connectivity zones.",
+      "Ran sprint planning in GitHub and mentored peers on React best practices while shipping the team's flagship field-data release."
+    ],
     badges: [
       "React Native",
       "Typescript",
@@ -59,10 +71,16 @@ const experience: Job[] = [
   {
     from: "Jan 2022",
     to: "Feb 2024",
-    prevTitles: ["React Engineer"],
+    prevTitles: ["Frontend Developer (Contract)"],
     titleAndCompany: "Software Engineer · BrightInsight",
-    description:
-      "As a Frontend Developer at BrightInsight, I actively contribute to their Disease Management Platform (DMP), working in a team of eight professionals. My role involves creating and documenting processes, using Agile practices, and leveraging React, TypeScript, and more. I continue to be a part of the team, contributing to the development of enterprise healthcare solutions.",
+    summary:
+      "Built React applications for a regulated healthcare platform, owning speed, usability, and test coverage across clinician and patient workflows.",
+    bullets: [
+      "Designed and shipped an end-to-end onboarding workflow for patients and clinicians, boosting activation and workflow compliance.",
+      "Diagnosed backend issues via GCP monitoring, resolving API reliability gaps across multiple services.",
+      "Refactored a fragile statement-management system into modular components, cutting recurring bugs 10% and shortening QA cycles.",
+      "Built a Python automation tool that eliminated redundant new-hire setup tasks, slashing onboarding time 40% and reclaiming hundreds of engineering hours a year."
+    ],
     badges: [
       "React",
       "Typescript",
@@ -80,8 +98,11 @@ const experience: Job[] = [
     to: "Feb 2022",
     prevTitles: [],
     titleAndCompany: "Application Developer Apprentice · IBM",
-    description:
-      "At IBM, I served as an Application Developer Apprentice, gaining insights into enterprise-level project workflows and Agile practices. My responsibilities included troubleshooting technical issues, conducting daily stand-up meetings, and understanding IBM's Hybrid Cloud Services. This experience enhanced my adaptability in dynamic work environments.",
+    summary:
+      "Completed 20+ hands-on modules in Agile, DevOps, and hybrid cloud architecture, building foundational CI/CD troubleshooting skills.",
+    bullets: [
+      "Ran daily stand-ups and shadowed senior engineers on deployment automation, documenting workflows that sped up new-hire ramp-up."
+    ],
     badges: [
       "Typescript/Javascript",
       "Agile",
@@ -96,8 +117,11 @@ const experience: Job[] = [
     to: "Mar 2020",
     prevTitles: ["Lead Barista", "Barista"],
     titleAndCompany: "General Manager · Go Get Em Tiger",
-    description:
-      "During my tenure as General Manager at Go Get Em Tiger, a Downtown LA coffee bar, I optimized store operations, reduced expenses, and improved staff allocation. I also played a key role in the hiring and training of new staff, emphasizing effective leadership and teamwork.",
+    summary:
+      "Rose from barista to general manager over three years, running daily operations, scheduling, and P&L for a high-volume specialty café.",
+    bullets: [
+      "Hired and trained staff, cut waste, and earned multiple performance bonuses for consistent service quality."
+    ],
     badges: [
       "Team Management",
       "Customer Service",
@@ -185,7 +209,13 @@ function Job({ job }: { job: Job }) {
         </div>
       )}
 
-      <p className="leading-normal pb-2">{job.description}</p>
+      <p className="leading-normal">{job.summary}</p>
+
+      <ul className="flex list-disc flex-col gap-1.5 pl-5 pb-2 leading-normal">
+        {job.bullets.map((bullet) => (
+          <li key={bullet}>{bullet}</li>
+        ))}
+      </ul>
 
       {job.links.length > 0 && (
         <div className="flex flex-wrap gap-x-2">

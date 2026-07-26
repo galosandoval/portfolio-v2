@@ -5,11 +5,26 @@ import Image from "next/image"
 import { GithubIcon, ZapIcon } from "lucide-react"
 import { StickyTitle } from "./sticky-title"
 
-const projects = [
+type Project = {
+  title: string
+  description: string
+  bullets?: string[]
+  href: string
+  imgSrc: string
+  links: { icon: React.ReactNode; label: string; href: string }[]
+}
+
+const projects: Project[] = [
   {
     title: "RecipeChat",
     description:
-      "An AI recipe assistant that generates, saves, and organizes recipes through chat. Every recipe is embedded and stored in a Postgres/pgvector database, powering semantic search, de-duplication against your saved collection, and a recipe cache that skips full regeneration for near-identical requests.",
+      "Full-stack conversational recipe assistant built solo on Next.js 15, React 19, tRPC, and Prisma.",
+    bullets: [
+      "Shipped a tool-calling AI pipeline for recipe generation and a pgvector layer that semantically deduplicates suggestions.",
+      "Built Stripe-gated subscription tiers end to end, from checkout through webhook-driven status sync.",
+      "Reached 89% test coverage across 217 unit/integration tests plus 12 Playwright E2E specs; live in production with early users onboarded.",
+      "Extracted the project's AI dev-agent tooling into the open-source @galosandoval/shopfloor package, a typed harness that runs Claude Code headlessly against GitHub issues, drafting PRs with guardrails and automated verification."
+    ],
     href: "https://recipechat.app/",
     imgSrc: "/recipechat.png",
     links: [
@@ -100,6 +115,14 @@ export function Projects() {
             </h3>
 
             <p className="">{project.description}</p>
+
+            {project.bullets && (
+              <ul className="flex list-disc flex-col gap-1.5 pl-5 pb-2 leading-normal">
+                {project.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            )}
 
             <div className="flex flex-wrap gap-x-4">
               {project.links.map((link) => (
