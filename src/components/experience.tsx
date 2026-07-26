@@ -126,7 +126,7 @@ export function Experience() {
       <div className="pt-10">
         <Link
           className="group font-semibold"
-          href="/Galo Sandoval Resume 2024.pdf"
+          href="/Galo Sandoval Public Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
