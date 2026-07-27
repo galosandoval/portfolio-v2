@@ -11,7 +11,6 @@ type Job = {
   prevTitles: string[]
   titleAndCompany: string
   summary: string
-  bullets: string[]
   badges: string[]
   href: string
   links: { title: string; url: string }[]
@@ -25,12 +24,6 @@ const experience: Job[] = [
     titleAndCompany: "Senior Frontend Developer · Spider Strategies",
     summary:
       "Modernizing legacy JavaScript, jQuery, and Backbone.js architecture into maintainable React features for a global user base, partnering with backend engineers on Java/Kotlin services.",
-    bullets: [
-      "Built an internal typing layer across backend controllers, giving engineers and AI tooling instant type inference and eliminating a class of untyped-payload bugs.",
-      "Replaced dialog-based navigation with cached tabs across 10+ app sections, engineering per-section caching so tab switches load instantly instead of re-fetching.",
-      "Owned the Forms section and built a customizable buttons widget, wiring multiple buttons to actions — widget-state changes, alerts, record saves, and form-variable updates.",
-      "Bridged performance gaps in a fragile legacy JS codebase, cutting key screen load times by up to 5 seconds through rendering and asset-delivery fixes."
-    ],
     badges: [
       "Javascript",
       "Typescript",
@@ -51,11 +44,6 @@ const experience: Job[] = [
     titleAndCompany: "Software Engineer · Codifi",
     summary:
       "Built mobile and web tooling for archaeological field teams using React Native, Redux, and Realm, with offline-first data sync and mapping.",
-    bullets: [
-      "Modernized the frontend architecture with new React libraries, cutting development time 10% and easing long-term maintenance.",
-      "Championed an offline-first Mapbox mapping feature, lifting field data reliability 30% in low-connectivity zones.",
-      "Ran sprint planning in GitHub and mentored peers on React best practices while shipping the team's flagship field-data release."
-    ],
     badges: [
       "React Native",
       "Typescript",
@@ -75,12 +63,6 @@ const experience: Job[] = [
     titleAndCompany: "Software Engineer · BrightInsight",
     summary:
       "Built React applications for a regulated healthcare platform, owning speed, usability, and test coverage across clinician and patient workflows.",
-    bullets: [
-      "Designed and shipped an end-to-end onboarding workflow for patients and clinicians, boosting activation and workflow compliance.",
-      "Diagnosed backend issues via GCP monitoring, resolving API reliability gaps across multiple services.",
-      "Refactored a fragile statement-management system into modular components, cutting recurring bugs 10% and shortening QA cycles.",
-      "Built a Python automation tool that eliminated redundant new-hire setup tasks, slashing onboarding time 40% and reclaiming hundreds of engineering hours a year."
-    ],
     badges: [
       "React",
       "Typescript",
@@ -100,9 +82,6 @@ const experience: Job[] = [
     titleAndCompany: "Application Developer Apprentice · IBM",
     summary:
       "Completed 20+ hands-on modules in Agile, DevOps, and hybrid cloud architecture, building foundational CI/CD troubleshooting skills.",
-    bullets: [
-      "Ran daily stand-ups and shadowed senior engineers on deployment automation, documenting workflows that sped up new-hire ramp-up."
-    ],
     badges: [
       "Typescript/Javascript",
       "Agile",
@@ -119,9 +98,6 @@ const experience: Job[] = [
     titleAndCompany: "General Manager · Go Get Em Tiger",
     summary:
       "Rose from barista to general manager over three years, running daily operations, scheduling, and P&L for a high-volume specialty café.",
-    bullets: [
-      "Hired and trained staff, cut waste, and earned multiple performance bonuses for consistent service quality."
-    ],
     badges: [
       "Team Management",
       "Customer Service",
@@ -210,12 +186,6 @@ function Job({ job }: { job: Job }) {
       )}
 
       <p className="leading-normal">{job.summary}</p>
-
-      <ul className="flex list-disc flex-col gap-1.5 pl-5 pb-2 leading-normal">
-        {job.bullets.map((bullet) => (
-          <li key={bullet}>{bullet}</li>
-        ))}
-      </ul>
 
       {job.links.length > 0 && (
         <div className="flex flex-wrap gap-x-2">
