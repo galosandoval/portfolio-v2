@@ -68,7 +68,7 @@ function Header() {
         <h2 className="text-lg font-medium sm:text-xl">
           Senior Frontend Developer at Spider Strategies
         </h2>
-        <p className="max-w-sm text-sm font-light leading-normal lg:whitespace-nowrap">
+        <p className="max-w-sm text-sm font-light leading-normal">
           Enterprise Frontend Engineer | TypeScript Migrations | RAG Systems
         </p>
         <div>
